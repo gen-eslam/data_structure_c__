@@ -1,9 +1,12 @@
 //
-// Created by roman on 9/18/2022.
+// Created by roman on 9/19/2022.
 //
 
-#ifndef DATA_STRACTURE_VECTOR_H
-#define DATA_STRACTURE_VECTOR_H
+#ifndef DATA_STRUCTURE_C___VECTOR_H
+#define DATA_STRUCTURE_C___VECTOR_H
+
+
+
 
 
 #include <cassert>
@@ -64,7 +67,7 @@ public:
 
     }
     int pop(int index){
-         T result = arr[index];
+        T result = arr[index];
         assert(index>=0 && index<size);
         for(int i=index;i<size;i++)
             arr[i]=arr[i+1];
@@ -100,8 +103,8 @@ public:
     }
     int find_transposition(T value){
         int found = find(value);
-        if (found =-1);
-        return -1;
+        if (found =-1)
+            return -1;
         T temp = arr[found-1];
         arr[found-1]=arr[found];
         arr[found]= temp;
@@ -157,7 +160,6 @@ public:
 };
 
 
-#endif //DATA_STRACTURE_VECTOR_H
 /// notes
 /*
  *  1 ->  this ->size = size =====>  vector(int size) : size(size){ your code }
@@ -165,3 +167,6 @@ public:
  *
  *
  * */
+
+
+#endif //DATA_STRUCTURE_C___VECTOR_H

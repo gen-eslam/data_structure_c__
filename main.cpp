@@ -13,9 +13,10 @@ int main() {
     linkedList.insert_end(4);
     linkedList.insert_front(0);
     linkedList.print();
-    linkedList.deleteFront();
+    linkedList.deleteByIndex(1);
     linkedList.print();
-   cout<< linkedList.getByIndexFromEnd(1);
+
+  // cout<< linkedList.getByIndexFromEnd(1)<<endl;
 
 
 

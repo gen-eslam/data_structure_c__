@@ -100,13 +100,14 @@ public:
 
         length = 0;
     }
-    ~SingleLinkedList(){
-        while (head){
-            Node<T> cur = head->next;
-            delete head;
-            head = cur;
-        }
-    }
+//    ~SingleLinkedList(){
+//        while (head){
+//            Node<T> *cur = head->next;
+//            delete head;
+//            head = cur;
+//        }
+//        cout<<endl;
+//    }
 
 
     void insert_end(T data) {
@@ -134,7 +135,47 @@ public:
 
     }
     void deleteFront (){
+        Node<T> *node = head;
         head = head->next;
+        delete node;
+    }
+    void deleteEnd (){
+        if(length<=1)
+        {
+            deleteFront();
+        }
+        Node<T> *previous =head ;
+
+        while (previous->next->next!=NULL) {
+           previous=previous->next;
+        }
+        delete tail;
+        tail= previous;
+        tail->next= nullptr;
+        length--;
+
+    }
+    void deleteByIndex(int index){
+        assert(index <= length && index >= 0);
+        if(index==0){
+            deleteFront();
+            return;
+        }else if(index == length){
+            deleteEnd();
+            return;
+
+        }else{
+            Node<T>*prev,*cur;
+            index--;
+            while(index--){
+                prev=head->next;
+            }
+            cur = prev->next;
+            prev->next=cur->next;
+            delete cur;
+        }
+
+
     }
 
     T get_end() {

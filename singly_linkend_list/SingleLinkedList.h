@@ -91,6 +91,9 @@ private:
         }
         return -1;
     }
+    bool is_odd(){
+        return (length&1)==1;
+    }
 
 
 public:
@@ -175,6 +178,25 @@ public:
             delete cur;
         }
 
+
+    }
+    void deleteByKey(T data){
+        int index = search(data);
+        if(index != -1){
+            deleteByIndex(index);
+        }
+    }
+    void swapData(){
+        Node<T> *temp =head;
+        if(is_odd())
+            length--;
+        int index =0;
+        while(index<length){
+            if(index%2==0)
+                swap(temp->data,temp->next->data);
+            index++;
+            temp= temp->next;
+        }
 
     }
 
